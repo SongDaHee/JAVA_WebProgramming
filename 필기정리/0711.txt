@@ -1,0 +1,9 @@
+DOM트리 완성될 때 발생하는 이벤트 종류 :  window 객체의 load이벤트
+이벤트 감시메서드 :  addEventListener("이벤트이름", function(){});
+window.addEventListener("load",function(){  });
+
+DOM트리에서 객체찾기
+	var oneObj = document.querySelelctor("div");
+
+input 태그의 값은 value로
+div의 태그의 값은 innerHTML로

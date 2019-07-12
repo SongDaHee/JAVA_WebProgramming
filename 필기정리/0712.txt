@@ -1,0 +1,6 @@
+DOM에 요소 추가하기
+
+var e = document.createElement("option"); --> <option>추가
+var t = document.createTextNode("제주"); --> 제주 추가
+e.appendChild(t); --> <option>제주</option>
+

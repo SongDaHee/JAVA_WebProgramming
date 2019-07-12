@@ -1,0 +1,127 @@
+자바언어
+-객체지향언어[자바, 파이썬, C++, C#]
+	-목적:클래스의 재사용성을 높이자
+	-조건:상속, 캡슐화(밖에서는 보지못하도록 감싸는), 다형성(같은 자료형에 여러 가지 객체를 대입하여 다양한 결과를 얻어내는 성질)
+
+int plus(int a, int b){return a+b;}
+double plus(double a, double b){return a+b;}
+:오버로딩
+
+void m(S s){
+	sop(s.toString());
+}
+
+//오버라이딩을 안했을 경우
+static void m(S s){
+	String str ="";
+	if(s instanceof SE){
+		str = "se";}
+	else if(s instanceof SD){
+		str = "sd";}
+	else{
+		str = s.toString();
+	}
+	sop(s.toString());
+}
+
+public static void main(String args[]){
+	S s = new Se(); //업캐스팅
+	Se e = new Se();
+	//S s = new S();
+	m(s);
+}
+
+class S{
+	String toSting(){return "ss";}
+}
+
+class Se extends S{
+	@Override
+	String toString(){return "se";}
+}
+
+class Sd extends S{
+
+} 
+	
+-플랫폼에 독립적
+	windows os에서 컴파일한 .class파일을
+	linux os에 붙여넣기한 후에 실행가능하다
+
+-JVM이 메모리 관리
+	- c언어는 포인터를 사용하고 나서 free로 메모리를 해제해줘야하지만 자바는 그런거 안해도됨.
+
+오버로딩 : 목적은 같으나 내용이 다름 
+오버라이딩 : 부모가 물려진 메소드가 나에게 맞진 않지만 이름을 그대로 쓰고 싶을때
+
+
+자바는 견고한 언어이기 때문에 클래스 로드 도중 새로운 클래스를 만나면 다시 jvm위로 로드한다.
+classpass(cp)가 붙어있는 경로가 우선임.
+한번 로드된 클래스는 프로그램이 종료될때까지 jvm메모리에 남아있음.
+
+A.java내용
+class A{
+	int i;
+	static int si;
+	public void main(String[] args){
+		class.forName("com.my.Ohter");
+	}
+}
+
+자바클래스실행절차
+ex) c:\>java -cp bin A
+1. bin\A.class 파일 찾기
+2. A.class 파일을 JVM에 로딩
+3. 바이트코드 검증
+4. 바이트코드를 바이너리(0,1)로 재해석
+5. class 영역에 기억시킨다
+6. static 변수 초기화
+7. main() 호출됨
+
+
+www.web
+web 관리 기관 - w3c
+web 기본 프로토콜 - HTTP(요청, 응답, 요청응답후 연결끊김:stateless 프로토콜)
+web 기본 마크업언어 - HTML
+
+
+       	XML(데이터의 구조화)
+SGML	-HTML(데이터의 표현)
+       	HTML4(1996년) - XHTML
+
+
+	웹2.0 - 브라우저 플랫폼화 What(Web Hypertext Application Technology Working Group)
+	= 각 브라우저의 기술을 사용할 수 있는 기술을 표준화한 단체
+	브라우저 자체가 api를 사용할 수 있는 환경이 되도록 만들자
+	HTML5(2010이후) - w3c가 what 워크그룹이 만들걸 승인해줌
+
+웹브라우저 기능 - 랜더링:서버가 보내주는 내용을 해석해서 예쁘게 화면에 보여주는 거
+상에서 하로, 좌에서 우로.
+
+CSS, HTML은 랜더링 엔진이 처리해주고
+자바스크립트를 만나면 자바스크립트 인터프리터가 처리해줌.
+
+랜더링엔진이 브라우저별로 다름. 즉 똑같은 html이 응답돼도 실행결과가 다를 수 있다.
+
+웹프에서 지켜야할 두가지
+1. 웹 표준화 : 어떤 브라우저에서도 동일한 결과
+2. 웹 접근성을 높여라 : 확대해도 깨지지 않도록
+
+html은 왠만하면 소문자로 작성
+
+<!DOCTYPE html> - html 문법에 맞게 작성됐는지 검사
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
