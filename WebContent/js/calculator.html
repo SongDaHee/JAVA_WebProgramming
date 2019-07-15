@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>js/calculator.html</title>
+<script>
+//dom트리
+window.addEventListener("load", function(){
+	var btArr = document.querySelectorAll("div.nums>button");
+	var inputObj = document.querySelector("input[type=text]");
+	for(var i=0; i<btArr.length; i++){
+		(function(j){ //함수의 매개변수
+			var btNumObj = btArr[j];
+			btNumObj.addEventListener("click", function(){ 
+				if(inputObj.value=='0' || inputObj.value.length==0){ //0만 있거나 입력이 안된 상태면
+					inputObj.value = btNumObj.innerHTML;	
+				}
+				else{
+					inputObj.value += btNumObj.innerHTML;
+				}
+			});
+			})(i); //전달된 인자값은 var i 0에서 9까지
+	}
+
+	var plusObj = document.querySelector("button[id=plus]");
+	var minusObj = document.querySelector("button[id=minus]");
+	
+	plusObj.addEventListener("click",function(){
+		var lastChar = inputObj.value.charAt(inputObj.value.length-1);
+		
+		if(lastChar != '+' && lastChar != '-'  && inputObj.value.length!=0){
+			inputObj.value += plusObj.innerHTML;	
+		}
+	});
+	
+	minusObj.addEventListener("click",function(){
+		var lastChar = inputObj.value.charAt(inputObj.value.length-1);
+		if(lastChar != '+' && lastChar != '-' && inputObj.value.length!=0){
+			inputObj.value += minusObj.innerHTML;	
+		}
+	});
+	
+	var equalObj = document.querySelector("button[id=equal]");
+	equalObj.addEventListener("click",function(){
+		var total = inputObj.value;
+		inputObj.value = eval(total);
+	});
+	
+	var clearObj = document.querySelector("button[id=clear]");
+	clearObj.addEventListener("click",function(){
+		inputObj.value = '';
+	});
+
+});
+
+// <input value="값"/> 여기엔 value를 사용
+// <div>값</div> 여기엔 innerHtml을 사용
+//클릭되면 안에있는 함수가 작동되는거라서 마지막 btNumObj.innerHTML값을 가져다 쓴다.
+//반복문을 이용해서 함수를 만들때는 스콥을 한번 끊고 다른 변수로 받아서 만들어야 한다.
+//eval함수 사용
+//Number("10.3") ==> 10.3
+
+//1. + -> 1과 연산자(+)를 기억, 새로운 숫자가 시작될 것을 기억
+//2. -> input clear후 숫자 보여주기
+//= -> 기억된 값과 2을 기억된 연산자로 연산한 결과를 input에 보여주기
+
+/* function operate(op){
+	if(inputObj.value == '0' || inputObj.length == 0){
+		return;
+	}
+	switch(operator){
+	case '=':
+		result = Number(inputObj.value);
+		break;
+	case '+':
+		result += Number(inputObj.value);
+		break;
+	case '-':
+		result -= Number(inputObj.value);
+		break;		
+	}
+	inputObj.value = result;
+	operator = op;
+	startNum = true;
+} */
+
+</script>
+</head>
+
+<body>
+<input type="text"><br>
+
+<div class="nums">
+<button>1</button><button>2</button><button>3</button>
+<br>
+<button>4</button><button>5</button><button>6</button>
+<br>
+<button>7</button><button>8</button><button>9</button>
+<br>
+<button>0</button>
+</div>
+
+<button id="plus">+</button>
+<button id="minus">-</button>
+<button id="equal">=</button>
+<button id="clear">CLEAR</button>
+
+</body>
+</html>
