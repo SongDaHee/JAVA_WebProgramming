@@ -1,0 +1,27 @@
+제이쿼리는 자바스크립트 라이브러리
+
+제이쿼리 함수를 쓰려면 제이쿼리 객체를 먼저 만들어야 한다.
+
+$()가 객체를 만드는 과정
+
+$.ajax() : 에이젝스 객체 만들기
+$.each() : 반복문 쓸때 사용
+
+$( "a" ).attr( "href", "allMyHrefsAreTheSameNow.html" ); 
+값을 세팅하는 메소드
+
+$( "a" ).attr( "href" );
+값을 가져오는 메소드
+
+
+먼저 제이쿼리 라이브러리를 사용할 수 있도록 외부 src를 연결시켜놓고 사용.
+
+$(document).ready(function(){
+== window.addEventListener("load",function(){
+== jQuery(document).ready(function(){
+== $(function(){
+
+엄밀히 말하면 조금 다르긴함.
+window는 모든 리소스 파일이 다 준비됐을때고 
+ready는 외부 이미지 리소스가 다 준비안됐을 때도 사용할 수 있다.
+
